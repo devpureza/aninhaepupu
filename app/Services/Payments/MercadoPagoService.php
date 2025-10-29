@@ -44,6 +44,17 @@ class MercadoPagoService
             'auto_return' => 'approved',
             'notification_url' => Arr::get($payload, 'notification_url'),
             'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
+            'payment_methods' => [
+                'excluded_payment_methods' => [
+                    ['id' => 'bolbradesco'], // Boleto Bradesco
+                ],
+                'excluded_payment_types' => [
+                    ['id' => 'ticket'], // Boleto (todos)
+                    ['id' => 'atm'], // Débito Caixa e similares
+                    ['id' => 'debit_card'], // Cartão de débito
+                ],
+                'installments' => 12, // Até 12x no cartão
+            ],
         ]);
     }
 
@@ -64,6 +75,17 @@ class MercadoPagoService
                 'auto_return' => 'approved',
                 'notification_url' => Arr::get($payload, 'notification_url'),
                 'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
+                'payment_methods' => [
+                    'excluded_payment_methods' => [
+                        ['id' => 'bolbradesco'],
+                    ],
+                    'excluded_payment_types' => [
+                        ['id' => 'ticket'],
+                        ['id' => 'atm'],
+                        ['id' => 'debit_card'],
+                    ],
+                    'installments' => 12,
+                ],
             ],
         ]);
 
