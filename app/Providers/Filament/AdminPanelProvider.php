@@ -45,6 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 \App\Filament\Admin\Widgets\WeddingStatsWidget::class,
             ])
+            ->login()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
