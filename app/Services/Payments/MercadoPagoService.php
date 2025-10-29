@@ -45,11 +45,13 @@ class MercadoPagoService
             'notification_url' => Arr::get($payload, 'notification_url'),
             'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
             'payment_methods' => [
-                'excluded_payment_types' => [
-                    ['id' => 'ticket'], // Boleto
-                    ['id' => 'atm'], // Débito Caixa
-                    ['id' => 'debit_card'], // Cartão de débito
-                    ['id' => 'prepaid_card'], // Cartão pré-pago
+                // Incluir apenas Pix e Cartão de Crédito
+                'included_payment_methods' => [
+                    ['id' => 'pix'],
+                ],
+                'included_payment_types' => [
+                    ['id' => 'credit_card'],
+                    ['id' => 'account_money'], // Pix
                 ],
                 'installments' => 12, // Até 12x no cartão de crédito
             ],
@@ -74,11 +76,12 @@ class MercadoPagoService
                 'notification_url' => Arr::get($payload, 'notification_url'),
                 'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
                 'payment_methods' => [
-                    'excluded_payment_types' => [
-                        ['id' => 'ticket'],
-                        ['id' => 'atm'],
-                        ['id' => 'debit_card'],
-                        ['id' => 'prepaid_card'],
+                    'included_payment_methods' => [
+                        ['id' => 'pix'],
+                    ],
+                    'included_payment_types' => [
+                        ['id' => 'credit_card'],
+                        ['id' => 'account_money'],
                     ],
                     'installments' => 12,
                 ],
