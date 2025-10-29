@@ -44,7 +44,6 @@ class MercadoPagoService
             'auto_return' => 'approved',
             'notification_url' => Arr::get($payload, 'notification_url'),
             'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
-            'purpose' => 'wallet_purchase', // Habilita Pix e outros métodos digitais
             'payment_methods' => [
                 'excluded_payment_types' => [
                     ['id' => 'ticket'], // Boleto
@@ -74,7 +73,6 @@ class MercadoPagoService
                 'auto_return' => 'approved',
                 'notification_url' => Arr::get($payload, 'notification_url'),
                 'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
-                'purpose' => 'wallet_purchase',
                 'payment_methods' => [
                     'excluded_payment_types' => [
                         ['id' => 'ticket'],
