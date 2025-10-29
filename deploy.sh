@@ -20,6 +20,10 @@ if [ ! -f public/css/filament-custom.css ]; then
     touch public/css/filament-custom.css
 fi
 
+# Executar upgrade do Filament (após garantir que arquivos existem)
+echo "🎨 Atualizando assets do Filament..."
+php artisan filament:upgrade || true
+
 # Limpar e otimizar caches
 echo "🧹 Limpando caches..."
 php artisan config:clear
