@@ -32,11 +32,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->brandLogo(asset('monograma-am.svg'))
             ->brandLogoHeight('2.5rem')
-            ->assets([
-                Css::make('am-filament-theme', 'css/filament-custom.css')
-                    ->package('app')
-                    ->relativePublicPath('css/filament-custom.css'),
-            ])
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\Filament\Admin\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\Filament\Admin\Pages')
             ->pages([
