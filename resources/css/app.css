@@ -1,0 +1,11 @@
+/* Importar Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+/* Importar tokens e estilos base */
+@import './tokens.css';
+
+/* Importar componentes */
+@import './components.css';
+
+/* Estilos adicionais do app aqui */
+
