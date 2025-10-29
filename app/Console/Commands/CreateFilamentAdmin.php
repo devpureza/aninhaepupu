@@ -14,7 +14,7 @@ class CreateFilamentAdmin extends Command
 
     public function handle()
     {
-        $email = 'mapureza@gmail.com';
+        $email = 'devpureza@gmail.com';
         
         if (User::where('email', $email)->exists()) {
             $this->error('Admin user already exists!');
