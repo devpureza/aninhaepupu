@@ -45,15 +45,15 @@ class MercadoPagoService
             'notification_url' => Arr::get($payload, 'notification_url'),
             'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
             'payment_methods' => [
-                'excluded_payment_methods' => [
-                    ['id' => 'bolbradesco'], // Boleto Bradesco
-                ],
                 'excluded_payment_types' => [
-                    ['id' => 'ticket'], // Boleto (todos)
-                    ['id' => 'atm'], // Débito Caixa e similares
+                    ['id' => 'ticket'], // Boleto
+                    ['id' => 'atm'], // Débito Caixa
                     ['id' => 'debit_card'], // Cartão de débito
+                    ['id' => 'bank_transfer'], // Transferência bancária (exceto Pix)
+                    ['id' => 'prepaid_card'], // Cartão pré-pago
                 ],
-                'installments' => 12, // Até 12x no cartão
+                'installments' => 12, // Até 12x no cartão de crédito
+                'default_payment_method_id' => null, // Permite Pix como padrão
             ],
         ]);
     }
@@ -76,15 +76,15 @@ class MercadoPagoService
                 'notification_url' => Arr::get($payload, 'notification_url'),
                 'statement_descriptor' => Arr::get($payload, 'statement_descriptor', 'Ana & Mateus'),
                 'payment_methods' => [
-                    'excluded_payment_methods' => [
-                        ['id' => 'bolbradesco'],
-                    ],
                     'excluded_payment_types' => [
                         ['id' => 'ticket'],
                         ['id' => 'atm'],
                         ['id' => 'debit_card'],
+                        ['id' => 'bank_transfer'],
+                        ['id' => 'prepaid_card'],
                     ],
                     'installments' => 12,
+                    'default_payment_method_id' => null,
                 ],
             ],
         ]);
