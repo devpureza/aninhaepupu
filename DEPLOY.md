@@ -83,10 +83,17 @@ EVENT_MAPS_URL="https://maps.app.goo.gl/3KjczRfytcjfk4LW9"
 2. Executa `composer install --optimize-autoloader --no-dev`
 3. Executa `npm install && npm run build`
 4. Gera chave de aplicação automaticamente
+5. **IMPORTANTE:** Configure o script de deploy em **Settings → Deploy Script**:
 
-### 5️⃣ Executar Migrations
+```bash
+bash deploy.sh
+```
 
-Via **Terminal** no painel Laravel Cloud:
+Este script cria diretórios necessários, otimiza caches e executa migrations automaticamente.
+
+### 5️⃣ Executar Migrations (Se Necessário)
+
+Se o script de deploy não executou automaticamente, rode via **Terminal** no painel Laravel Cloud:
 
 ```bash
 php artisan migrate --force
